@@ -1,0 +1,19 @@
+# Development Profile Configuration
+# This profile provides default values for local development
+
+rag:
+  documents-path: classpath:docs/
+  file-extensions: .txt,.md
+  system-prompt: |
+    You are an enterprise HR assistant. Answer the question based EXCLUSIVELY on the context provided below.
+    If the answer cannot be found in the context, politely indicate that you don't have this information.
+    
+    CONTEXT:
+    {context}
+  top-k-documents: 2
+
+logging:
+  level:
+    root: INFO
+    com.example.rag_demo: DEBUG
+    org.springframework.ai: DEBUG

@@ -1,0 +1,6 @@
+Politique de télétravail et avantages RH chez CleverTech (2026) :
+
+1. Télétravail : Les collaborateurs en CDI ont droit à 2 jours de télétravail par semaine (mardi et jeudi). Une prime d'équipement de 300 EUR est attribuée lors de l'embauche.
+2. Congés payés : Chaque salarié dispose de 25 jours de congés payés par an, plus 5 jours de RTT. Les demandes doivent être soumises au moins 2 semaines à l'avance sur le portail RH.
+3. Budget Formation : Un budget annuel de 1500 EUR par développeur est alloué pour passer des certifications cloud (AWS, Spring, etc.).
+4. Horaires de travail : Les plages horaires flexibles s'étendent de 08h30 à 18h30, avec une présence obligatoire lors du Standup quotidien à 09h30.

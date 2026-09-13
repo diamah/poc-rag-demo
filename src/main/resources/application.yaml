@@ -1,0 +1,58 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: rag-demo
+  profiles:
+    active: dev  # Default to dev profile for local development
+    # Disable favicon.ico request (prevents NoResourceFoundException)
+    mvc:
+      favicon:
+        enabled: false
+  
+  # Spring AI Configuration for Ollama integration
+  ai:
+    ollama:
+      # Ollama server URL (default: localhost:11434)
+      base-url: http://localhost:11434
+      chat:
+        options:
+          # Model for chat completion (LLaMA 3.1 8B parameters)
+          model: llama3.1:8b
+      embedding:
+        options:
+          # Model for text embeddings (Nomic Embed Text)
+          model: nomic-embed-text
+
+# RAG Configuration
+# Default values are provided in application-dev.yaml for development
+# For production, override these values via environment variables or profile-specific configs
+rag:
+  documents-path:
+  file-extensions:
+  system-prompt:
+  top-k-documents:
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.example.rag_demo: DEBUG
+    org.springframework.ai: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Actuator Configuration for health checks and monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
