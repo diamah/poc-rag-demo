@@ -2,7 +2,7 @@
 
 A production-ready demonstration of the RAG (Retrieval-Augmented Generation) pattern implemented with Spring Boot, Spring AI, and Ollama. This application showcases intelligent document Q&A capabilities by combining vector similarity search with Large Language Model (LLM) generation.
 
-## ? Overview
+## 🎯 Overview
 
 This project implements a complete RAG pipeline for answering questions based on enterprise documents. The system:
 
@@ -12,49 +12,49 @@ This project implements a complete RAG pipeline for answering questions based on
 - **Retrieves** relevant document chunks based on user queries
 - **Generates** context-aware responses using LLaMA 3.1
 
-## ?? Architecture
+## 🏗️ Architecture
 
 ```
-???????????????????
-?  User Question  ?
-???????????????????
-         ?
-         ?
-???????????????????????????????????????????????????????????
-?                    RagController                         ?
-?  ?????????????????????????????????????????????????????  ?
-?  ?  1. Vector Similarity Search (VectorStore)        ?  ?
-?  ?  2. Context Extraction                           ?  ?
-?  ?  3. Prompt Augmentation                           ?  ?
-?  ?  4. LLM Generation (ChatClient)                   ?  ?
-?  ?????????????????????????????????????????????????????  ?
-???????????????????????????????????????????????????????????
-         ?
-         ?
-???????????????????????????????????????????????????????????
-?              VectorStore (SimpleVectorStore)            ?
-?  - Stores document embeddings                           ?
-?  - Performs similarity search                          ?
-?  - In-memory implementation (POC)                      ?
-???????????????????????????????????????????????????????????
-         ?
-         ?
-???????????????????????????????????????????????????????????
-?              DataLoaderService                          ?
-?  - Loads documents from resources                       ?
-?  - Splits documents into chunks                          ?
-?  - Generates embeddings via EmbeddingModel             ?
-???????????????????????????????????????????????????????????
-         ?
-         ?
-???????????????????????????????????????????????????????????
-?                    Ollama (Local)                       ?
-?  - LLaMA 3.1 (8B) for chat completion                  ?
-?  - Nomic Embed Text for embeddings                      ?
-???????????????????????????????????????????????????????????
+┌─────────────────┐
+│  User Question  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────┐
+│                    RagController                         │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │  1. Vector Similarity Search (VectorStore)        │  │
+│  │  2. Context Extraction                           │  │
+│  │  3. Prompt Augmentation                           │  │
+│  │  4. LLM Generation (ChatClient)                   │  │
+│  └───────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────┐
+│              VectorStore (SimpleVectorStore)            │
+│  - Stores document embeddings                           │
+│  - Performs similarity search                          │
+│  - In-memory implementation (POC)                      │
+└─────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────┐
+│              DataLoaderService                          │
+│  - Loads documents from resources                       │
+│  - Splits documents into chunks                          │
+│  - Generates embeddings via EmbeddingModel             │
+└─────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────┐
+│                    Ollama (Local)                       │
+│  - LLaMA 3.1 (8B) for chat completion                  │
+│  - Nomic Embed Text for embeddings                      │
+└─────────────────────────────────────────────────────────┘
 ```
 
-## ? Features
+## 🚀 Features
 
 - **Intelligent Document Q&A**: Ask questions and receive context-aware answers
 - **Streaming Responses**: Real-time response generation for better UX
@@ -65,7 +65,7 @@ This project implements a complete RAG pipeline for answering questions based on
 - **Comprehensive Logging**: Structured logging for debugging and monitoring
 - **Exception Handling**: Global exception handling with consistent error responses
 
-## ?? Tech Stack
+## 🛠️ Tech Stack
 
 - **Java 21** - Modern Java with records and pattern matching
 - **Spring Boot 4.1.1** - Application framework
@@ -75,7 +75,7 @@ This project implements a complete RAG pipeline for answering questions based on
 - **Lombok** - Reduce boilerplate code
 - **SimpleVectorStore** - In-memory vector database (POC)
 
-## ? Prerequisites
+## 📋 Prerequisites
 
 Before running this application, ensure you have:
 
@@ -97,7 +97,7 @@ ollama pull nomic-embed-text
 ollama serve
 ```
 
-## ? Installation & Setup
+## 🔧 Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -123,7 +123,7 @@ ollama serve
 
 The application will start on `http://localhost:8080`
 
-## ? API Endpoints
+## 📡 API Endpoints
 
 ### 1. Ask Question (Non-streaming)
 ```http
@@ -167,37 +167,37 @@ curl "http://localhost:8080/api/test?message=Hello, introduce yourself"
 GET /actuator/health
 ```
 
-## ? Project Structure
+## 📁 Project Structure
 
 ```
 rag-demo/
-??? src/
-?   ??? main/
-?   ?   ??? java/com/example/rag_demo/
-?   ?   ?   ??? config/              # Configuration classes
-?   ?   ?   ?   ??? RagConfig.java   # Vector store configuration
-?   ?   ?   ?   ??? WebConfig.java   # CORS and web configuration
-?   ?   ?   ??? controller/          # REST controllers
-?   ?   ?   ?   ??? RagController.java    # RAG endpoints
-?   ?   ?   ?   ??? TestController.java   # LLM test endpoint
-?   ?   ?   ??? service/             # Business logic
-?   ?   ?   ?   ??? DataLoaderService.java # Document ingestion
-?   ?   ?   ??? dto/                 # Data Transfer Objects
-?   ?   ?   ?   ??? QuestionRequest.java
-?   ?   ?   ?   ??? AnswerResponse.java
-?   ?   ?   ??? exception/           # Exception handling
-?   ?   ?   ?   ??? GlobalExceptionHandler.java
-?   ?   ?   ??? RagDemoApplication.java # Main application class
-?   ?   ??? resources/
-?   ?       ??? application.yaml     # Application configuration
-?   ?       ??? docs/                # Document resources
-?   ?           ??? charte_entreprise.txt
-?   ??? test/                        # Test classes
-??? pom.xml                          # Maven configuration
-??? README.md                        # This file
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/rag_demo/
+│   │   │   ├── config/              # Configuration classes
+│   │   │   │   ├── RagConfig.java   # Vector store configuration
+│   │   │   │   └── WebConfig.java   # CORS and web configuration
+│   │   │   ├── controller/          # REST controllers
+│   │   │   │   ├── RagController.java    # RAG endpoints
+│   │   │   │   └── TestController.java   # LLM test endpoint
+│   │   │   ├── service/             # Business logic
+│   │   │   │   └── DataLoaderService.java # Document ingestion
+│   │   │   ├── dto/                 # Data Transfer Objects
+│   │   │   │   ├── QuestionRequest.java
+│   │   │   │   └── AnswerResponse.java
+│   │   │   ├── exception/           # Exception handling
+│   │   │   │   └── GlobalExceptionHandler.java
+│   │   │   └── RagDemoApplication.java # Main application class
+│   │   └── resources/
+│   │       ├── application.yaml     # Application configuration
+│   │       └── docs/                # Document resources
+│   │           └── charte_entreprise.txt
+│   └── test/                        # Test classes
+├── pom.xml                          # Maven configuration
+└── README.md                        # This file
 ```
 
-## ? How RAG Works
+## 🔍 How RAG Works
 
 ### The RAG Pipeline
 
@@ -226,7 +226,7 @@ rag-demo/
 - **ChatClient**: Interfaces with Ollama for LLM inference
 - **TokenTextSplitter**: Splits documents into optimal chunk sizes
 
-## ?? Configuration
+## ⚙️ Configuration
 
 ### Application Configuration (`application.yaml`)
 
@@ -250,7 +250,7 @@ spring:
 - **Add Documents**: Place new documents in `src/main/resources/docs/`
 - **Logging Levels**: Adjust logging in `application.yaml`
 
-## ? Testing
+## 🧪 Testing
 
 Run the test suite:
 
@@ -274,7 +274,7 @@ curl "http://localhost:8080/api/rag/ask?question=Quelle est la prime d'équipeme
 curl "http://localhost:8080/actuator/health"
 ```
 
-## ? Production Considerations
+## 🚀 Production Considerations
 
 This is a POC/ demonstration project. For production deployment, consider:
 
@@ -310,7 +310,7 @@ This is a POC/ demonstration project. For production deployment, consider:
 - Add response validation and fact-checking
 - Consider model quantization for faster inference
 
-## ? Key Concepts
+## 📚 Key Concepts
 
 ### Retrieval-Augmented Generation (RAG)
 RAG combines retrieval-based and generation-based approaches:
@@ -333,7 +333,7 @@ RAG combines retrieval-based and generation-based approaches:
 - Returns top-K most similar document chunks
 - Provides context for LLM generation
 
-## ? Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
 
@@ -343,21 +343,21 @@ Contributions are welcome! Please follow these guidelines:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## ? License
+## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## ??? Author
+## 👨‍💻 Author
 
 **Karem MHAMDIA** - [LinkedIn](https://linkedin.com/in/yourusername) - [GitHub](https://github.com/yourusername)
 
-## ? Acknowledgments
+## 🙏 Acknowledgments
 
 - [Spring AI](https://spring.io/projects/spring-ai) - AI integration framework
 - [Ollama](https://ollama.com) - Local LLM inference
 - [Spring Boot](https://spring.io/projects/spring-boot) - Application framework
 
-## ? Support
+## 📞 Support
 
 For questions or support:
 - Open an issue on GitHub
@@ -365,4 +365,4 @@ For questions or support:
 
 ---
 
-**Built with ?? using Spring AI and Ollama**
+**Built with ❤️ using Spring AI and Ollama**
