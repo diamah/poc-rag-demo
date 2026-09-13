@@ -132,12 +132,12 @@ GET /api/rag/ask?question=Your question here
 
 **Example:**
 ```bash
-curl "http://localhost:8080/api/rag/ask?question=Quels sont les droits de télétravail?"
+curl "http://localhost:8080/api/rag/ask?question=Quels sont les droits de tÃ©lÃ©travail?"
 ```
 
 **Response:**
 ```json
-"Les collaborateurs en CDI ont droit à 2 jours de télétravail par semaine (mardi et jeudi)..."
+"Les collaborateurs en CDI ont droit Ã  2 jours de tÃ©lÃ©travail par semaine (mardi et jeudi)..."
 ```
 
 ### 2. Ask Question (Streaming)
@@ -265,10 +265,10 @@ Run the test suite:
 curl "http://localhost:8080/api/test"
 
 # Test RAG with streaming
-curl -N "http://localhost:8080/api/rag/stream?question=Quels sont les congés payés?"
+curl -N "http://localhost:8080/api/rag/stream?question=Quels sont les congÃ©s payÃ©s?"
 
 # Test RAG without streaming
-curl "http://localhost:8080/api/rag/ask?question=Quelle est la prime d'équipement?"
+curl "http://localhost:8080/api/rag/ask?question=Quelle est la prime d'Ã©quipement?"
 
 # Check health
 curl "http://localhost:8080/actuator/health"
